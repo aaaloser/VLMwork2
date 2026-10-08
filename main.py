@@ -521,9 +521,8 @@ def cli_evaluate_single(args: Union[argparse.Namespace, None] = None) -> None:
         qwrapper(process_model, prompt_inputs, prompt_kwargs, args)
 
     results = evaluator.simple_evaluate(
-        # model=args.model,
-        # lm=lm,
-        model=lm,
+        model=args.model,
+        lm=lm,
         model_args=args.model_args,
         tasks=task_names,
         num_fewshot=args.num_fewshot,

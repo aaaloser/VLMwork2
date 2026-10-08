@@ -201,6 +201,30 @@ def process_input(prompt_inputs, prompt_kwargs):
     return inputs, vision_mask, caption_mask
 
 
+def _prepare_reweight_backward(model, mini_inputs):
+    """Configure reweighting to backpropagate activation gradients only."""
+    for parameter in model.model.parameters():
+        parameter.requires_grad_(False)
+    if hasattr(model, "lm_head"):
+        for parameter in model.lm_head.parameters():
+            parameter.requires_grad_(False)
+
+    if hasattr(model.model, "config"):
+        model.model.config.use_cache = False
+        model.model.config.output_attentions = False
+        model.model.config.output_hidden_states = False
+
+    model.model.zero_grad(set_to_none=True)
+
+    prepared_inputs = dict(mini_inputs)
+    prepared_inputs["inputs_embeds"] = (
+        prepared_inputs["inputs_embeds"].detach().requires_grad_(True)
+    )
+    prepared_inputs["use_cache"] = False
+    prepared_inputs["return_dict"] = True
+    return prepared_inputs
+
+
 @torch.no_grad()
 def run_qig(
     model,
@@ -293,7 +317,8 @@ def run_qig(
                 for k in inputs:
                     if isinstance(inputs[k], torch.Tensor):
                         mini_inputs[k] = inputs[k][i:i+mini_batch]
-                
+
+                mini_inputs = _prepare_reweight_backward(model, mini_inputs)
                 outputs = model(**mini_inputs)
 
                 loss = outputs[0]

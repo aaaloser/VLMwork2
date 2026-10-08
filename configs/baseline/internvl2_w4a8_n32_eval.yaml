@@ -1,0 +1,16 @@
+model: internvl2
+model_args: pretrained=/data/liyifan24/VLM/models/InternVL2-8B
+# Historical --tasks mmmu also generated submissions for 10,500 test examples.
+# Validation only keeps the 900 labeled examples used for the reported score.
+tasks: mmmu_val
+batch_size: "1"
+log_samples: true
+log_samples_suffix: qig_w4a8_n32
+method: qig
+pseudo_quant: true
+run_process: false
+w_bit: 4
+a_bit: 8
+w_group: 128
+output_path: output/baseline_w4a8_n32
+scale_path: scale_cache/qig/internvl2_w4a8.pt

@@ -1,5 +1,7 @@
 # [CVPR 2026] Fine-Grained Post-Training Quantization for Large Vision Language Models with Quantization-Aware Integrated Gradients
 
+> Local research baseline: see [docs/BASELINE.md](docs/BASELINE.md) for pinned dependencies, reproduction fixes, environment records, model patches and experiment branches.
+
 This repository is the official implementation of CVPR 2026:
 
 **[Fine-Grained Post-Training Quantization for Large Vision Language Models with Quantization-Aware Integrated Gradients](https://arxiv.org/abs/2603.17809)**  

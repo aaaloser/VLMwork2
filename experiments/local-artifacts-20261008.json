@@ -1,0 +1,74 @@
+{
+  "calibration": {
+    "bytes": 154255,
+    "path": "/data/liyifan24/VLM/data/calib_coco_128.json",
+    "sha256": "2a69c9fc4163b73754ac73fb8dd91d4adeed08a6c34071306f710c5ff47acb95"
+  },
+  "captured_date": "2026-10-08",
+  "evaluation_results": [
+    {
+      "bytes": 4212,
+      "mmmu_val_accuracy": 0.44667,
+      "path": "/data/liyifan24/VLM/code/QIG/output/models__InternVL2-8B/20260923_110701_results.json",
+      "sha256": "5e6fbf75b34204c6acd34f49e1a18bf11fd4db5a4023cfa05e60a0bbc2176aed"
+    },
+    {
+      "bytes": 4212,
+      "mmmu_val_accuracy": 0.45778,
+      "path": "/data/liyifan24/VLM/code/QIG/output/models__InternVL2-8B/20260923_201030_results.json",
+      "sha256": "bd433962b42b3891b0e533e9a4c91cb01a17c9acdbf5c01cfae5087c2e5f697c"
+    },
+    {
+      "bytes": 4212,
+      "mmmu_val_accuracy": 0.45889,
+      "path": "/data/liyifan24/VLM/code/QIG/output/models__InternVL2-8B/20261007_171432_results.json",
+      "sha256": "f79f757b45c1960a1c9c66006a73b1aea7cbadd14f5edb3ba824bdb6d707eb6c"
+    },
+    {
+      "bytes": 4212,
+      "mmmu_val_accuracy": 0.45778,
+      "path": "/data/liyifan24/VLM/code/QIG/output/models__InternVL2-8B/20261007_215738_results.json",
+      "sha256": "159741296385f99d571e64abaaca5b45496597e61664594d7838eb36998ffd60"
+    },
+    {
+      "bytes": 4212,
+      "mmmu_val_accuracy": 0.45778,
+      "path": "/data/liyifan24/VLM/code/QIG/output/models__InternVL2-8B/20261008_094858_results.json",
+      "sha256": "737777493518c88aaf7fb8b4dc72bd4fdb94ab91a73066ad14856fa9dc4d9df2"
+    },
+    {
+      "bytes": 4212,
+      "mmmu_val_accuracy": 0.45778,
+      "path": "/data/liyifan24/VLM/code/QIG/output/models__InternVL2-8B/20261008_124135_results.json",
+      "sha256": "b6eb7c66e1fa1b991d1def11986f200fa4afcbeda64173bdd6c4d1e45911352b"
+    }
+  ],
+  "model_code": {
+    "bytes": 61552,
+    "path": "/data/liyifan24/VLM/models/InternVL2-8B/modeling_internlm2.py",
+    "sha256": "dc460ee44069a203f29dd81acc757c14b33517973ab0ea9d7c9a6e9bfe0b618f"
+  },
+  "note": "Artifacts remain local and are not committed. Result JSON does not record quantization bits or scale path; do not infer them from timestamps alone. Current scale hashes do not prove which file was used by a historical run.",
+  "scales": [
+    {
+      "bytes": 1482123,
+      "path": "/data/liyifan24/VLM/code/QIG/scale_cache/qig/internvl2_w3a16_n32.pt",
+      "sha256": "1e1d633cdd52264f266193dbb39e86957d136b1bc70929655896645bf7436a26"
+    },
+    {
+      "bytes": 1482123,
+      "path": "/data/liyifan24/VLM/code/QIG/scale_cache/qig/internvl2_w3a16_n64.pt",
+      "sha256": "d3a6a9a2de50f78e1e435fcdd270421c5ef78151b5b667eae55d2bd00dd589a0"
+    },
+    {
+      "bytes": 1481613,
+      "path": "/data/liyifan24/VLM/code/QIG/scale_cache/qig/internvl2_w4a8.pt",
+      "sha256": "3900c1982301573bed614bad36064f7a53ecb165e52af0bec9955984d1e0ca1e"
+    },
+    {
+      "bytes": 1482021,
+      "path": "/data/liyifan24/VLM/code/QIG/scale_cache/qig/internvl2_w4a8_n64.pt",
+      "sha256": "464f842f340a5a074c888dbbc99954e72e2b9cfe53a94779dadc78875dedf31b"
+    }
+  ]
+}

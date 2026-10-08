@@ -1,0 +1,12 @@
+diff --git a/modeling_internlm2.py b/modeling_internlm2.py
+--- a/modeling_internlm2.py
++++ b/modeling_internlm2.py
+@@ -1080,3 +1080,7 @@
+         hidden_states = outputs[0]
+-        logits = self.output(hidden_states)
++        # Generation only consumes the logits for the final position.  Avoid
++        # materializing the full vocabulary projection for long prompts.
++        generation_only = labels is None and (use_cache if use_cache is not None else self.config.use_cache)
++        logits_input = hidden_states[:, -1:, :] if generation_only else hidden_states
++        logits = self.output(logits_input)
+         logits = logits.float()

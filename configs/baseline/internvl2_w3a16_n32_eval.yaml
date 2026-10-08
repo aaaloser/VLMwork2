@@ -1,0 +1,14 @@
+model: internvl2
+model_args: pretrained=/data/liyifan24/VLM/models/InternVL2-8B
+tasks: mmmu_val
+batch_size: "1"
+log_samples: true
+log_samples_suffix: qig_w3a16_n32
+method: qig
+pseudo_quant: true
+run_process: false
+w_bit: 3
+a_bit: 16
+w_group: 128
+output_path: output/baseline_w3a16_n32
+scale_path: scale_cache/qig/internvl2_w3a16_n32.pt

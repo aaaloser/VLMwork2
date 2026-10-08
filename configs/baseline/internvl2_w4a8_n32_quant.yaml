@@ -1,0 +1,16 @@
+model: internvl2
+model_args: pretrained=/data/liyifan24/VLM/models/InternVL2-8B
+calib_data: coco
+data_path: /data/liyifan24/VLM/data/calib_coco_128.json
+image_folder: /data/liyifan24/VLM/data/coco/train2017
+n_samples: 32
+method: qig
+run_process: true
+pseudo_quant: false
+w_bit: 4
+a_bit: 8
+w_group: 128
+reweight: true
+distort: true
+loss_mode: mae
+scale_path: scale_cache/qig/internvl2_w4a8.pt

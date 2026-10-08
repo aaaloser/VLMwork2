@@ -115,20 +115,25 @@ class InternVL2(BaseModel):
         return_dict = return_dict if return_dict is not None else self.model.config.use_return_dict
         if input_ids is not None and inputs_embeds is not None:
             raise ValueError('You cannot specify both input_ids and inputs_embeds at the same time')
+
+        # Reweighting computes a token-level loss outside the language model, so
+        # it needs logits for the full sequence. The local InternLM2 backend only
+        # projects the last token while the KV cache is enabled.
+        effective_use_cache = False if labels is not None else use_cache
         
         if input_ids is not None:
             lm = self.fetch_llm()
             outputs = lm(
                 input_ids=input_ids.to(next(lm.parameters()).device),
                 attention_mask=attention_mask.to(next(lm.parameters()).device) if attention_mask is not None else None,
-                use_cache=use_cache
+                use_cache=effective_use_cache
             )
         if inputs_embeds is not None:
             lm = self.fetch_llm()
             outputs = lm(
                 inputs_embeds=inputs_embeds.to(next(lm.parameters()).device),
                 attention_mask=attention_mask.to(next(lm.parameters()).device) if attention_mask is not None else None,
-                use_cache=use_cache
+                use_cache=effective_use_cache
             )
 
         logits = outputs.logits

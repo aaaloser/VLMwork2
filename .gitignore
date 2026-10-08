@@ -1,0 +1,29 @@
+# Python bytecode caches
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Local runs and generated artifacts
+/nohup_log/
+/nohup_logs/
+/output/
+/scale_cache/
+/nohup.out
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+build/
+dist/
+
+# Local editor, environments, data and credentials
+/.vscode/
+/.idea/
+/.worktrees/
+/.venv/
+/envs/
+/models/
+/data/
+.env
+.env.*
+!.env.example
